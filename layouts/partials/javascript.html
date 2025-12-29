@@ -3,7 +3,7 @@
 {{ $prism := resources.Get "js/prism.js" }}
 {{ $secureJS := slice $main $menu $prism | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
-
+<script defer src="https://analytics.tomastechlab.com/script.js" data-website-id="6d8e3626-7fc6-4692-a562-fb54effeee8b"></script>
 {{ range $val := $.Site.Params.customJS }}
     {{ if gt (len $val) 0 }}
         <script src="{{ $val }}"></script>
